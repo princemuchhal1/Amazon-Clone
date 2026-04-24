@@ -1,25 +1,30 @@
-# Amazon Clone
+# 🛒 Amazon Clone
 
-This is a front-end Amazon clone built using HTML and CSS.
-It replicates the basic layout of the Amazon homepage.
+A front-end clone of the Amazon homepage built using HTML and CSS.
+This project replicates the UI layout and design of a real e-commerce platform.
 
-# Features
+## 🚀 Features
 
-* Navigation bar
-* Product sections
-* Footer layout
+* Navigation bar with logo and search
+* Product grid layout
+* Banner section
+* Footer design
 
-# Tech Stack
+## 🛠️ Tech Stack
 
-* HTML
-* CSS
+* HTML5
+* CSS3
 
-# Future Improvements
+## 📌 Future Improvements
 
-* Add JavaScript functionality
-* Improve responsiveness
-* Add cart and login system
+* Add JavaScript functionality (cart, search)
+* Make the website fully responsive
+* Backend integration
 
-#How to Run
+## ▶️ How to Run
 
-Download the project and open `index.html` in your browser.
+1. Clone the repository
+2. Open `index.html` in your browser
+
+
+⭐ Feel free to fork and improve!
