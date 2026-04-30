@@ -80,8 +80,14 @@ Amazon-Clone/
 
 ## 📷 Screenshots
 
-*(Add screenshots here for better presentation)*
+### 🏠 Homepage
+![Homepage](screenshots/home.png)
 
+### 📦 Category Page
+![Category](screenshots/category.png)
+
+### 🛍️ Product Page
+![Product](screenshots/product.png)
 ---
 
 ## 🛠️ Tech Stack
