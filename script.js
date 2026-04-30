@@ -32,12 +32,82 @@ document.addEventListener("DOMContentLoaded", () => {
             count = 0;
             localStorage.setItem("cartCount", count);
             updateCart();
+            alert("Cart cleared!");
         });
     }
+    
+    const searchInput = document.getElementById("search-input");
+
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get("search");
+
+    if (searchInput && searchQuery) {
+        searchInput.value = searchQuery;
+    }
+
+    if (searchInput) {
+
+        const products = document.querySelectorAll(".product-card");
+
+        // CATEGORY PAGE (products exist)
+        if (products.length > 0) {
+
+            const filterProducts = (value) => {
+                value = value.toLowerCase();
+                let found = false;
+
+                products.forEach(product => {
+                    const name = product.getAttribute("data-name");
+
+                    if (value === "" || name.includes(value)) {
+                        product.style.display = "block";
+                        found = true;
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+
+                const noResults = document.getElementById("no-results");
+                if (noResults) {
+                    noResults.style.display = found ? "none" : "block";
+                }
+            };
+
+            // input typing
+            searchInput.addEventListener("input", () => {
+                filterProducts(searchInput.value);
+            });
+
+            // AUTO FILTER when coming from other page
+            if (searchQuery) {
+                filterProducts(searchQuery);
+            }
+        }
+        
+        // OTHER PAGES (no products → redirect)
+        else {
+
+            searchInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+
+                    const query = searchInput.value.trim();
+
+                    if (query !== "") {
+                        window.location.href = "category.html?search=" + encodeURIComponent(query);
+                    }
+                }
+            });
+
+        }
+    }
+
+    window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+    });
 
     // ---------------- PRODUCT PAGE ----------------
-    const params = new URLSearchParams(window.location.search);
-    const product = params.get("product");
+    const productParams  = new URLSearchParams(window.location.search);
+    const product = productParams.get("product");
 
     const title = document.getElementById("product-title");
     const price = document.getElementById("product-price");
@@ -101,10 +171,10 @@ document.addEventListener("DOMContentLoaded", () => {
             image.src = "massage_oil.jpg";
             desc.innerText = "Relaxing massage oils for body care.";
         }
-            else {
-                title.innerText = "Product Not Found";
-                price.innerText = "";
-                desc.innerText = "";
-            }
+        else {
+            title.innerText = "Product Not Found";
+            price.innerText = "";
+            desc.innerText = "";
         }
+    }
 });
